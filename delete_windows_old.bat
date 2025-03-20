@@ -1,39 +1,39 @@
 @echo off
 setlocal enabledelayedexpansion
 
-echo [INFO] Đang kiểm tra và xóa tất cả thư mục Windows.old*
+echo [INFO] finding Windows.old*
 
 :: Lặp qua tất cả thư mục trong C:\ có tên bắt đầu bằng "Windows.old"
 for /d %%F in (C:\Windows.old*) do (
-    echo [INFO] Đang xử lý thư mục: "%%F"
+    echo [INFO] Folder processing: "%%F"
 
     :: Thử xóa nhanh trước
     RD /S /Q "%%F" 2>nul
     IF NOT EXIST "%%F" (
-        echo ✅ Đã xóa thành công thư mục ngay lần đầu.
+        echo ✅ Deleted sucess at first time.
         exit /b 0
     )
 
     :: Nếu chưa xóa được, chiếm quyền và thử lại
-    echo [INFO] Chiếm quyền thư mục để xóa lại...
+    echo [INFO] taking owner...
     takeown /F "%%F" /R /D Y >nul 2>&1
     icacls "%%F" /grant Administrators:F /T /C /Q >nul 2>&1
 
-    echo [INFO] Đang xóa lại thư mục sau khi chiếm quyền...
+    echo [INFO] deleting again...
     RD /S /Q "%%F" 2>nul
 
     :: Kiểm tra lần cuối
     IF EXIST "%%F" (
-        echo ❌ Không thể xóa hoàn toàn thư mục "%%F"
+        echo ❌ can't delete "%%F"
         exit /b 1
     ) ELSE (
-        echo ✅ Đã xóa thành công thư mục "%%F"
+        echo ✅ delete successed "%%F"
     )
 )
 
 :: Nếu không tìm thấy thư mục nào để xóa
 if not exist C:\Windows.old* (
-    echo [INFO] Không tìm thấy thư mục nào bắt đầu bằng "Windows.old", bỏ qua.
+    echo [INFO] can't find "Windows.old", passed.
 )
 
 :: Sau khi xóa xong, chạy `testdeletefolder.exe`
