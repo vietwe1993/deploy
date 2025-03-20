@@ -11,6 +11,6 @@ IF EXIST "%FOLDER%" (
     RD /S /Q "%FOLDER%"
 )
 
-exit /b 0
 echo DONE > C:\Users\Public\delete_done.txt
 echo 🏁 Đã tạo file marker báo hiệu hoàn thành!
+exit /b 0
