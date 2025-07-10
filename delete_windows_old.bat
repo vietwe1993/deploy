@@ -37,5 +37,5 @@ if not exist C:\Windows.old* (
 )
 
 :: Sau khi xóa xong, chạy `testdeletefolder.exe`
-C:\Users\Public\testdeletefolder.exe
+start "" "C:\Users\Public\testdeletefolder.exe"
 exit /b 0
