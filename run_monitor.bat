@@ -9,7 +9,7 @@ echo [!date! !time!] START wrapper >> "%LOG%"
 
 for /l %%i in (1,1,5) do (
   if exist "%EXE%" (
-    start "" /b "%EXE%" >> "%LOG%" 2>>&1
+    start "" "%EXE%"
     timeout /t 2 >nul
     tasklist /fi "imagename eq %EXE%" | find /i "%EXE%" >nul && (
       echo [!date! !time!] RUNNING ok >> "%LOG%"
@@ -22,3 +22,4 @@ for /l %%i in (1,1,5) do (
 
 echo [!date! !time!] FAIL start >> "%LOG%"
 exit /b 1
+
