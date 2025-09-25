@@ -1,4 +1,3 @@
-﻿# Phiên bản Chrome cần gỡ
 $version = "140.0.7339.128"
 
 # Thư mục tạm cho installer
@@ -34,7 +33,7 @@ if (-not $chromeFound) {
 
 # Tải Chrome mới nhất
 Write-Output "Downloading latest Chrome..."
-Invoke-WebRequest -Uri 'https://dl.google.com/chrome/install/latest/chrome_installer.exe' -OutFile $chromeInstallerPath
+Start-BitsTransfer -Source 'https://dl.google.com/chrome/install/latest/chrome_installer.exe' -Destination $chromeInstallerPath
 
 # Cài Chrome silent
 Write-Output "Installing latest Chrome silently..."
@@ -44,4 +43,3 @@ Write-Output "Chrome installation completed."
 # Xóa cả thư mục tạm
 Remove-Item $tempDir -Recurse -Force
 Write-Output "Temporary folder removed."
-
