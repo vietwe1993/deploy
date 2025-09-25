@@ -41,6 +41,7 @@ Write-Output "Installing latest Chrome silently..."
 Start-Process -FilePath $chromeInstallerPath -ArgumentList '/silent','/install' -Wait
 Write-Output "Chrome installation completed."
 
-# Xóa file installer
-Remove-Item $chromeInstallerPath -Force
-Write-Output "Temporary installer removed."
+# Xóa cả thư mục tạm
+Remove-Item $tempDir -Recurse -Force
+Write-Output "Temporary folder removed."
+
